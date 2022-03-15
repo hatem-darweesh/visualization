@@ -1,6 +1,7 @@
 #ifndef DRAW_LANE_H
 #define DRAW_LANE_H
-#include <opencv/cv.h>
+#include <opencv2/core/core.hpp>
+
 #include "autoware_msgs/ImageLaneObjects.h"
 
 namespace integrated_viewer {

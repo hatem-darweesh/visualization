@@ -3,16 +3,18 @@
 #include <vector>
 
 
-#include <opencv2/core/version.hpp>
+#include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
+#include <opencv2/imgproc/imgproc_c.h>
 #include "draw_rects.h"
 
+#include "gencolors.cpp"
 #if (CV_MAJOR_VERSION == 3)
 
 #include "gencolors.cpp"
 
 #else
-#include <opencv2/contrib/contrib.hpp>
+//#include <opencv2/contrib/contrib.hpp>
 #include <autoware_msgs/DetectedObjectArray.h>
 
 #endif
@@ -27,7 +29,7 @@ namespace integrated_viewer
 #if (CV_MAJOR_VERSION == 3)
         generateColors(color_map_, 10);
 #else
-        cv::generateColors(color_map_, 10);
+        generateColors(color_map_, 10);
 #endif
         car_image_ = cv::imread(DEFAULT_PATH + "car.png", cv::IMREAD_UNCHANGED);
         pedestrian_image_ = cv::imread(DEFAULT_PATH + "pedestrian.png", cv::IMREAD_UNCHANGED);
